@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor controls">
+    <header>
+      <h1>Neon Coast <span>Cover Studio</span></h1>
+      <p>Turn any photo and caption into GTA-style multi-panel cover art. 100% offline — photos never leave this machine.</p>
+    </header>
+
+    <label>Layout
+      <select id="layout"></select>
+    </label>
+    <label>Grade
+      <select id="grade"></select>
+    </label>
+    <label>Print texture
+      <select id="texture">
+        <option value="grain">Film grain</option>
+        <option value="halftone">Halftone dots</option>
+        <option value="poster">Posterized ink</option>
+        <option value="clean">Clean</option>
+      </select>
+    </label>
+
+    <label>Title
+      <input id="title" type="text" maxlength="24" value="NEON SHORE">
+    </label>
+    <label>Subtitle
+      <input id="subtitle" type="text" maxlength="40" value="Vice City nights">
+    </label>
+    <label>Star heat
+      <select id="stars">
+        <option value="5" selected>★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+    </label>
+
+    <div class="photo-row">
+      <label class="file-label">Photo 1 <input id="photo0" type="file" accept="image/*"></label>
+      <label class="file-label">Photo 2 <input id="photo1" type="file" accept="image/*"></label>
+    </div>
+    <button id="sample" type="button">Use sample photos</button>
+
+    <div class="undo-row">
+      <button id="undo" type="button">Undo</button>
+      <button id="redo" type="button">Redo</button>
+    </div>
+
+    <label>Export size
+      <select id="exportSize"></select>
+    </label>
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+    <p class="hint">Drag a panel to reposition its photo; scroll over a panel to zoom. Every export is rendered fresh from the same cover engine as the preview.</p>
+    <footer>Original artwork only — no Rockstar logos, art or fonts. Type: Anton &amp; Pacifico (SIL OFL, vendored in app/fonts).</footer>
+  </section>
+  <section class="preview" aria-label="Live cover preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
